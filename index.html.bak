@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amirali Kazemi - Portfolio" />
+  <title>Amirali Kazemi — Portfolio</title>
+
+  <!-- Tailwind CDN (works great for GitHub Pages) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji'],
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(0,0,0,0.08)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="font-sans bg-neutral-200 text-neutral-900">
+  <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:shadow-soft">
+    Skip to content
+  </a>
+
+  <!-- Page fits the viewport. No scroll. -->
+  <div class="h-screen w-full overflow-hidden">
+    <div class="mx-auto h-full max-w-7xl p-3 sm:p-4">
+      <div class="h-full rounded-[28px] bg-white/75 shadow-soft ring-1 ring-black/5 backdrop-blur flex flex-col">
+        <!-- Top bar -->
+        <header class="flex items-center justify-between gap-4 px-4 py-3 sm:px-6 flex-shrink-0">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-3 w-3 rounded-full bg-amber-400"></span>
+            <span class="text-sm font-semibold tracking-wide">AMIRALI KAZEMI</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <a href="mailto:amirali@example.com" class="inline-flex items-center rounded-full bg-neutral-900 px-4 py-2 text-xs font-medium text-white hover:bg-neutral-800">Contact</a>
+          </div>
+        </header>
+
+        <!-- Main content - no scroll, fits viewport -->
+        <main id="content" class="flex-1 overflow-hidden px-4 pb-3 sm:px-6" aria-label="Portfolio content">
+          <!-- HERO -->
+          <section id="home" class="grid gap-4 lg:grid-cols-2">
+            <!-- Intro card -->
+            <div class="relative overflow-hidden rounded-[24px] bg-white ring-1 ring-black/5">
+              <div class="absolute inset-0">
+                <div class="absolute -left-16 -top-20 h-72 w-72 rounded-full bg-amber-200/70 blur-3xl"></div>
+                <div class="absolute -right-20 -bottom-24 h-80 w-80 rounded-full bg-emerald-200/60 blur-3xl"></div>
+                <div class="absolute left-20 top-44 h-72 w-72 rounded-full bg-sky-200/50 blur-3xl"></div>
+              </div>
+
+              <div class="relative p-6 sm:p-8">
+                <h1 class="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+                  Hey, I’m <span class="underline decoration-amber-300 decoration-[10px] underline-offset-2">Your Name</span>,
+                  a <span class="text-neutral-700">Product Designer</span>
+                  with <span class="text-neutral-700">7+ years</span> of experience
+                </h1>
+
+                <p class="mt-4 max-w-xl text-sm leading-6 text-neutral-700 sm:text-base">
+                  I care about using design for positive impact and enjoy creating user-centric, delightful, and human experiences.
+                  Replace this paragraph with a short, specific positioning statement.
+                </p>
+
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                  <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-800">
+                    Contact me
+                  </a>
+
+                  <div class="flex items-center gap-2">
+                    <!-- Social buttons: replace hrefs -->
+                    <a href="#" class="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 ring-1 ring-black/10 hover:bg-white" aria-label="Portfolio">
+                      <svg class="h-5 w-5 text-neutral-700 group-hover:text-neutral-900" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 9.5h10M7 14.5h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M7.5 4.5h9A3.5 3.5 0 0 1 20 8v8a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16V8a3.5 3.5 0 0 1 3.5-3.5Z" stroke="currentColor" stroke-width="1.8"/>
+                      </svg>
+                    </a>
+                    <a href="#" class="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 ring-1 ring-black/10 hover:bg-white" aria-label="Instagram">
+                      <svg class="h-5 w-5 text-neutral-700 group-hover:text-neutral-900" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                      </svg>
+                    </a>
+                    <a href="#" class="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 ring-1 ring-black/10 hover:bg-white" aria-label="X">
+                      <svg class="h-5 w-5 text-neutral-700 group-hover:text-neutral-900" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M8 6h4l4 12h-4L8 6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                    <a href="#" class="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 ring-1 ring-black/10 hover:bg-white" aria-label="LinkedIn">
+                      <svg class="h-5 w-5 text-neutral-700 group-hover:text-neutral-900" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.5 9.5V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M6.5 6.75h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+                        <path d="M10.5 18v-5.2c0-1.7 1.1-3.1 2.9-3.1s2.9 1.4 2.9 3.1V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.5 12.2V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M4.5 4.5h15A3.5 3.5 0 0 1 23 8v8a3.5 3.5 0 0 1-3.5 3.5h-15A3.5 3.5 0 0 1 1 16V8A3.5 3.5 0 0 1 4.5 4.5Z" stroke="currentColor" stroke-width="1.8"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-2 text-xs text-neutral-700">
+                  <span class="rounded-full bg-white/70 px-3 py-1 ring-1 ring-black/10">UX Strategy</span>
+                  <span class="rounded-full bg-white/70 px-3 py-1 ring-1 ring-black/10">Product Thinking</span>
+                  <span class="rounded-full bg-white/70 px-3 py-1 ring-1 ring-black/10">Design Systems</span>
+                  <span class="rounded-full bg-white/70 px-3 py-1 ring-1 ring-black/10">Prototyping</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Photo card -->
+            <div class="relative overflow-hidden rounded-[24px] bg-amber-200/70 ring-1 ring-black/5">
+              <!-- Replace the image URL with your own: e.g. ./assets/profile.jpg -->
+              <img
+                src="https://images.unsplash.com/photo-1520975682031-a35d6c5dbb7c?auto=format&fit=crop&w=1400&q=70"
+                alt="Portrait photo"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-5">
+                <div class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-xs text-neutral-800 ring-1 ring-black/10">
+                  <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                  Available for new projects
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- WORK GRID -->
+          <section id="work" class="mt-4 grid gap-4 lg:grid-cols-2" aria-label="Selected work">
+            <!-- Card template: title, subtitle, image, external link button -->
+            <article class="group relative overflow-hidden rounded-[24px] bg-violet-600 ring-1 ring-black/5">
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 class="text-lg font-semibold text-white">Flop App</h2>
+                    <p class="mt-1 text-sm text-white/80">Social media for poker players</p>
+                  </div>
+                  <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-neutral-900 ring-1 ring-black/10 transition group-hover:scale-[1.02]" aria-label="Open project">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17 17 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M10 7h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+
+                <div class="mt-6">
+                  <div class="relative mx-auto w-[85%] rotate-[-10deg] rounded-[28px] bg-black/10 p-2 shadow-soft">
+                    <img
+                      src="https://images.unsplash.com/photo-1580915411954-282cb1d1e9a2?auto=format&fit=crop&w=1200&q=70"
+                      alt="Project preview"
+                      class="aspect-[9/16] w-full rounded-[22px] object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[24px] bg-neutral-800 ring-1 ring-black/5">
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 class="text-lg font-semibold text-white">Landscape</h2>
+                    <p class="mt-1 text-sm text-white/80">Lend & borrow dashboard</p>
+                  </div>
+                  <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-neutral-900 ring-1 ring-black/10 transition group-hover:scale-[1.02]" aria-label="Open project">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17 17 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M10 7h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+
+                <div class="mt-6">
+                  <div class="relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <img
+                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=70"
+                      alt="Project preview"
+                      class="h-64 w-full object-cover opacity-90"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[24px] bg-neutral-100 ring-1 ring-black/5">
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 class="text-lg font-semibold">Tribe.so Admin Onboarding</h2>
+                    <p class="mt-1 text-sm text-neutral-600">Reduce time-to-value for new admins</p>
+                  </div>
+                  <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-900 ring-1 ring-black/10 transition group-hover:scale-[1.02]" aria-label="Open project">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17 17 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M10 7h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-white p-4 ring-1 ring-black/5">
+                    <p class="text-xs font-medium text-neutral-600">Outcome</p>
+                    <p class="mt-1 text-sm font-semibold">-22% setup time</p>
+                  </div>
+                  <div class="rounded-2xl bg-white p-4 ring-1 ring-black/5">
+                    <p class="text-xs font-medium text-neutral-600">Focus</p>
+                    <p class="mt-1 text-sm font-semibold">Guided flows</p>
+                  </div>
+                  <div class="rounded-2xl bg-white p-4 ring-1 ring-black/5 sm:col-span-2">
+                    <p class="text-xs font-medium text-neutral-600">Highlights</p>
+                    <ul class="mt-2 space-y-1 text-sm text-neutral-700">
+                      <li class="flex gap-2"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"></span><span>Progressive disclosure and checklists</span></li>
+                      <li class="flex gap-2"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"></span><span>Contextual empty states</span></li>
+                      <li class="flex gap-2"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400"></span><span>Design system alignment</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[24px] bg-sky-50 ring-1 ring-black/5">
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 class="text-lg font-semibold">Promo Dashboard</h2>
+                    <p class="mt-1 text-sm text-neutral-600">Campaign analytics & reporting</p>
+                  </div>
+                  <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-900 ring-1 ring-black/10 transition group-hover:scale-[1.02]" aria-label="Open project">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17 17 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M10 7h7v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+
+                <div class="mt-6 overflow-hidden rounded-2xl bg-white ring-1 ring-black/5">
+                  <div class="grid grid-cols-3 gap-3 p-4">
+                    <div class="rounded-xl bg-neutral-50 p-3 ring-1 ring-black/5">
+                      <p class="text-xs text-neutral-500">CTR</p>
+                      <p class="mt-1 text-sm font-semibold">3.8%</p>
+                    </div>
+                    <div class="rounded-xl bg-neutral-50 p-3 ring-1 ring-black/5">
+                      <p class="text-xs text-neutral-500">Spend</p>
+                      <p class="mt-1 text-sm font-semibold">$12.4k</p>
+                    </div>
+                    <div class="rounded-xl bg-neutral-50 p-3 ring-1 ring-black/5">
+                      <p class="text-xs text-neutral-500">ROAS</p>
+                      <p class="mt-1 text-sm font-semibold">2.1x</p>
+                    </div>
+                  </div>
+                  <div class="px-4 pb-4">
+                    <div class="h-28 rounded-2xl bg-gradient-to-r from-sky-200 via-emerald-200 to-amber-200"></div>
+                    <p class="mt-3 text-sm text-neutral-600">Replace this with a screenshot or a simple chart image.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- ABOUT -->
+          <section id="about" class="mt-4 rounded-[24px] bg-white ring-1 ring-black/5">
+            <div class="p-6 sm:p-8">
+              <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div class="max-w-2xl">
+                  <h2 class="text-xl font-semibold tracking-tight">About</h2>
+                  <p class="mt-2 text-sm leading-6 text-neutral-700 sm:text-base">
+                    Write a short bio here: what you do, who you do it for, and what outcomes you’re known for.
+                    Keep it concrete: domains, scale, metrics, and strengths.
+                  </p>
+
+                  <div class="mt-4 flex flex-wrap gap-2 text-xs text-neutral-700">
+                    <span class="rounded-full bg-neutral-100 px-3 py-1 ring-1 ring-black/5">Figma</span>
+                    <span class="rounded-full bg-neutral-100 px-3 py-1 ring-1 ring-black/5">Framer</span>
+                    <span class="rounded-full bg-neutral-100 px-3 py-1 ring-1 ring-black/5">Notion</span>
+                    <span class="rounded-full bg-neutral-100 px-3 py-1 ring-1 ring-black/5">User Research</span>
+                    <span class="rounded-full bg-neutral-100 px-3 py-1 ring-1 ring-black/5">Design Ops</span>
+                  </div>
+                </div>
+
+                <aside class="w-full max-w-md rounded-2xl bg-neutral-50 p-5 ring-1 ring-black/5">
+                  <h3 class="text-sm font-semibold">At a glance</h3>
+                  <dl class="mt-3 grid grid-cols-2 gap-3 text-sm">
+                    <div class="rounded-xl bg-white p-3 ring-1 ring-black/5">
+                      <dt class="text-xs text-neutral-500">Experience</dt>
+                      <dd class="mt-1 font-semibold">7+ years</dd>
+                    </div>
+                    <div class="rounded-xl bg-white p-3 ring-1 ring-black/5">
+                      <dt class="text-xs text-neutral-500">Focus</dt>
+                      <dd class="mt-1 font-semibold">B2B & B2C</dd>
+                    </div>
+                    <div class="rounded-xl bg-white p-3 ring-1 ring-black/5">
+                      <dt class="text-xs text-neutral-500">Location</dt>
+                      <dd class="mt-1 font-semibold">Your City</dd>
+                    </div>
+                    <div class="rounded-xl bg-white p-3 ring-1 ring-black/5">
+                      <dt class="text-xs text-neutral-500">Open to</dt>
+                      <dd class="mt-1 font-semibold">Full-time / Freelance</dd>
+                    </div>
+                  </dl>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <!-- CONTACT -->
+          <section id="contact" class="mt-4 rounded-[24px] bg-neutral-900 text-white ring-1 ring-black/10">
+            <div class="p-6 sm:p-8">
+              <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <h2 class="text-xl font-semibold tracking-tight">Let’s build something great</h2>
+                  <p class="mt-2 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
+                    Add your preferred contact method here. For GitHub Pages, a simple mailto link is reliable.
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                  <a href="mailto:you@example.com" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-medium text-neutral-900 hover:bg-neutral-100">
+                    Email me
+                  </a>
+                  <a href="#" class="inline-flex items-center justify-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/15 hover:bg-white/15">
+                    Download résumé
+                  </a>
+                </div>
+              </div>
+
+              <div class="mt-6 border-t border-white/10 pt-4 text-xs text-white/60">
+                <p>© <span id="year"></span> Your Name. Built with Tailwind CDN.</p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tiny enhancement only. Safe for GitHub Pages.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
