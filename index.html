@@ -3,144 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amirali Kazemi - React & Next.js Developer</title>
+    <title>Amirali Kazemi - Portfolio</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        .gradient-hero {
-            background: linear-gradient(135deg, #fef3c7 0%, #f0fdf4 100%);
+        /* Base styles matching the design */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6f7f9; /* Light grey/white matching the dribbble shot */
         }
-        .gradient-photo {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        
+        .fade-block {
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
-        .gradient-purple {
-            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+        
+        .fade-out {
+            opacity: 0;
+            transform: translateY(10px) scale(0.98);
+            pointer-events: none;
         }
-        .gradient-dark {
-            background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+
+        /* Toggle Button Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #1a202c;
         }
-        .gradient-teal {
-            background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #1a202c;
         }
-        .gradient-orange {
-            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+        
+        /* Arc Timeline */
+        .arc-path {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-top: 1.5px solid #d1d5db;
+            border-left: 1.5px solid #d1d5db;
+            border-top-left-radius: 100%;
+            z-index: 0;
+        }
+
+        .chart-bar {
+            transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
-<body class="bg-gray-100 overflow-hidden">
-    <div class="max-w-7xl mx-auto p-3 md:p-5 h-screen flex flex-col gap-3 md:gap-4">
-        <!-- Navigation -->
+<body class="h-screen w-screen overflow-hidden flex flex-col text-gray-900 selection:bg-purple-200">
 
-        <!-- First Row: Hero Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 flex-1 min-h-0">
-            <div class="gradient-hero rounded-2xl md:rounded-3xl p-5 md:p-7 flex flex-col justify-between shadow-md h-full">
-                <div>
-                    <h1 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight mb-3 md:mb-4 text-gray-800">
-                        Hey, I'm Amirali, a frontend developer with expertise in React & Next.js
-                    </h1>
-                    <p class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-md">
-                        I specialize in building modern, performant web applications with exceptional user experiences. Passionate about clean code, scalable architecture, and cutting-edge technologies.
-                    </p>
-                </div>
-                <div class="flex gap-3 items-center flex-wrap mt-4">
-                    <a href="mailto:amirali@example.com" class="bg-gray-800 text-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all inline-block">
-                        Contact me
-                    </a>
-                    <div class="flex gap-2">
-                        <a href="https://github.com/amiralikazemi" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-gray-800 hover:-translate-y-0.5 hover:shadow-md transition-all shadow-sm" title="GitHub">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="md:w-5 md:h-5">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                        <a href="https://linkedin.com/in/amiralikazemi" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-gray-800 hover:-translate-y-0.5 hover:shadow-md transition-all shadow-sm" title="LinkedIn">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="md:w-5 md:h-5">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                        </a>
-                        <a href="https://twitter.com/amiralikazemi" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-gray-800 hover:-translate-y-0.5 hover:shadow-md transition-all shadow-sm" title="Twitter">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="md:w-5 md:h-5">
-                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-                            </svg>
-                        </a>
-                        <a href="https://dribbble.com/amiralikazemi" target="_blank" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-gray-800 hover:-translate-y-0.5 hover:shadow-md transition-all shadow-sm" title="Dribbble">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="md:w-5 md:h-5">
-                                <path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-7.213.657-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+    <!-- Header Navigation -->
+    <header class="flex justify-between items-center w-full px-6 py-4 bg-transparent shrink-0">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
+            <div class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
+                <i data-lucide="zap" class="w-4 h-4"></i>
             </div>
+            Amirali<span class="text-gray-500 font-medium">Kazemi</span>
+        </div>
 
-            <div class="gradient-photo rounded-2xl md:rounded-3xl overflow-hidden relative shadow-md h-full flex items-center justify-center text-5xl md:text-6xl lg:text-7xl text-white/70">
-                👨‍💻
+        <!-- Center Menu / Persona Toggle -->
+        <div class="flex items-center gap-6">
+            <div class="relative flex items-center bg-gray-200/60 rounded-full p-1 w-64 cursor-pointer shadow-inner shadow-gray-300/50" id="toggle-container">
+                <div id="toggle-slider" class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-black rounded-full transition-transform duration-300 ease-out shadow-sm translate-x-0"></div>
+                <div id="text-eng" class="flex-1 text-center py-1.5 text-sm font-semibold z-10 transition-colors duration-300 text-white select-none">Engineer</div>
+                <div id="text-dev" class="flex-1 text-center py-1.5 text-sm font-semibold z-10 transition-colors duration-300 text-gray-500 select-none">Web Dev</div>
             </div>
         </div>
 
-        <!-- Second Row: Projects -->
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4 flex-1 min-h-0">
-            <div class="gradient-purple rounded-2xl md:rounded-3xl p-5 md:p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all shadow-md text-white h-full">
-                <div>
-                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-3">⚛️</div>
-                    <div class="mb-3">
-                        <div class="text-base md:text-lg font-bold mb-1">E-Commerce Platform</div>
-                        <div class="text-xs opacity-90">Next.js 14 with App Router</div>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Next.js</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">TypeScript</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Tailwind</span>
-                    </div>
+        <!-- Right Side Nav -->
+        <div class="flex items-center gap-5">
+            <a href="mailto:4amiralikazemi@gmail.com" class="text-gray-500 hover:text-black transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+            <a href="https://linkedin.com/in/amiralikazemi" target="_blank" class="text-gray-500 hover:text-black transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            <a href="https://github.com/amiralikazemi" target="_blank" class="text-gray-500 hover:text-black transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+            <button class="bg-black text-white px-5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-2 hover:bg-gray-800 transition-colors shadow-lg shadow-gray-200">
+                Let's Talk
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="flex-1 w-full max-w-[1600px] mx-auto grid grid-cols-12 gap-6 px-6 pb-6 overflow-hidden">
+        
+        <!-- Left Column -->
+        <div class="col-span-3 flex flex-col justify-between pt-4 pb-2 relative fade-block" id="col-left">
+            
+            <div class="flex gap-4">
+                <!-- Vertical Progress -->
+                <div class="flex flex-col items-center mt-2 shrink-0">
+                    <div class="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-[10px] font-bold">1</div>
+                    <div class="w-px h-8 bg-gray-300 my-1"></div>
+                    <div class="w-4 h-4 rounded-full border border-gray-400 flex items-center justify-center text-[9px] text-gray-400 font-medium">2</div>
+                    <div class="w-px h-8 bg-gray-300 my-1"></div>
+                    <div class="w-4 h-4 rounded-full border border-gray-400 flex items-center justify-center text-[9px] text-gray-400 font-medium">3</div>
                 </div>
-                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center self-end text-lg mt-3">→</div>
+
+                <!-- Text Content -->
+                <div>
+                    <h1 id="hero-title" class="text-4xl leading-[1.1] font-semibold tracking-tight text-gray-900 mb-6 font-serif-like"></h1>
+                    <h2 class="text-lg font-medium text-gray-800 mb-2" id="hero-heading"></h2>
+                    <p id="hero-subtitle" class="text-gray-500 text-sm leading-relaxed mb-8 pr-4"></p>
+                    
+                    <button class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium flex items-center gap-3 hover:bg-gray-800 transition-colors w-max shadow-md shadow-gray-300">
+                        View Resume 
+                        <div class="bg-gray-100 text-black rounded-full p-1"><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>
+                    </button>
+                </div>
             </div>
 
-            <div class="gradient-dark rounded-2xl md:rounded-3xl p-5 md:p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all shadow-md text-white h-full">
-                <div>
-                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-3">📱</div>
-                    <div class="mb-3">
-                        <div class="text-base md:text-lg font-bold mb-1">SaaS Dashboard</div>
-                        <div class="text-xs opacity-90">React with real-time data</div>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">React</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Redux</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Chart.js</span>
+            <!-- Arc Timeline Decoration -->
+            <div class="relative w-full h-[30%] min-h-[160px] max-h-[220px] mt-12 pl-12 pr-4 z-10 hidden xl:block">
+                <div class="arc-path"></div>
+                <!-- Arc Nodes -->
+                <div class="absolute top-[3%] left-[10%] flex flex-col items-center -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-2.5 h-2.5 bg-black rounded-full ring-4 ring-white shadow z-10"></div>
+                    <span class="text-[10px] text-gray-500 font-medium mt-1 truncate max-w-[80px]" id="node-1"></span>
+                </div>
+                <div class="absolute top-[35%] left-[0%] flex flex-col items-end translate-x-3 -translate-y-1/2">
+                    <span class="text-[10px] text-gray-500 font-medium whitespace-nowrap mr-2" id="node-2"></span>
+                    <div class="w-2.5 h-2.5 bg-black rounded-full ring-4 ring-white shadow z-10 absolute -right-1 top-1"></div>
+                </div>
+                <div class="absolute top-[80%] left-[5%] flex flex-col items-start translate-x-1 translate-y-2">
+                    <div class="w-2.5 h-2.5 bg-black rounded-full ring-4 ring-white shadow z-10 -ml-1.5 -mt-3"></div>
+                    <span class="text-[10px] text-gray-500 font-medium whitespace-nowrap" id="node-3"></span>
+                </div>
+                
+                <!-- Floating Mini Box matching Dribbble -->
+                <div class="absolute bottom-[0%] left-[25%]">
+                    <div class="w-16 h-16 rounded-2xl bg-white shadow-xl rotate-12 p-1 overflow-hidden pointer-events-none fade-block" id="arc-image-container">
+                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=200" id="arc-image" class="w-full h-full object-cover rounded-xl" />
                     </div>
                 </div>
-                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center self-end text-lg mt-3">→</div>
             </div>
+            
+        </div>
 
-            <div class="gradient-teal rounded-2xl md:rounded-3xl p-5 md:p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all shadow-md text-white h-full">
-                <div>
-                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-3">🎨</div>
-                    <div class="mb-3">
-                        <div class="text-base md:text-lg font-bold mb-1">Design System</div>
-                        <div class="text-xs opacity-90">Component library & docs</div>
+        <!-- Center Column -->
+        <div class="col-span-6 h-full flex flex-col fade-block" id="col-center">
+            <div class="w-full h-full rounded-[32px] overflow-hidden relative shadow-md flex flex-col justify-end p-6 transition-all duration-500" id="center-bg">
+                
+                <!-- Background visual -->
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200" id="center-image" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-multiply transition-opacity duration-500" />
+                
+                <!-- Gradient Fill Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-transparent mix-blend-overlay"></div>
+
+                <!-- Top Icons -->
+                <div class="absolute top-6 left-6 w-11 h-11 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-gray-800 cursor-pointer shadow-sm hover:bg-white/50 transition">
+                    <i data-lucide="bookmark" class="w-5 h-5"></i>
+                </div>
+                <div class="absolute top-6 right-6 w-11 h-11 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-gray-800 cursor-pointer shadow-sm hover:bg-white/50 transition">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                </div>
+
+                <!-- Floating Main Card -->
+                <div class="relative z-10 w-full max-w-sm mx-auto mb-4 bg-white/95 backdrop-blur-xl rounded-[24px] p-6 shadow-2xl transition-all duration-500 translate-y-0" id="center-card">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-1" id="card-tag"></span>
+                            <h3 class="text-2xl font-bold text-gray-900" id="card-value"></h3>
+                        </div>
+                        <img src="" id="card-avatar" alt="Avatar" class="w-10 h-10 rounded-full bg-gray-100 p-0.5 shadow-sm" />
                     </div>
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">React</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Storybook</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">CSS-in-JS</span>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-sm text-gray-600 font-medium" id="card-highlight"></span>
+                    </div>
+
+                    <!-- Growth / Detail area (similar to image) -->
+                    <div class="w-full rounded-2xl overflow-hidden h-32 relative group">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=600" id="card-cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute top-3 left-3 px-2.5 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-bold text-gray-800 shadow-sm" id="card-growth"></div>
+                    </div>
+                    
+                    <!-- Vertical Stepper (Left absolute positioned) -->
+                    <div class="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg">
+                        <div class="w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center border border-gray-100">
+                            <i data-lucide="check" class="w-3 h-3 text-black"></i>
+                        </div>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-50 text-gray-400">
+                            <i data-lucide="chevron-up" class="w-3 h-3"></i>
+                        </div>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-50 text-gray-400">
+                            <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center self-end text-lg mt-3">→</div>
-            </div>
-
-            <div class="gradient-orange rounded-2xl md:rounded-3xl p-5 md:p-6 flex flex-col justify-between cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all shadow-md text-white h-full">
-                <div>
-                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-3">🚀</div>
-                    <div class="mb-3">
-                        <div class="text-base md:text-lg font-bold mb-1">Portfolio CMS</div>
-                        <div class="text-xs opacity-90">Headless CMS integration</div>
-                    </div>
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Next.js</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">Sanity</span>
-                        <span class="bg-white/20 px-2 py-1 rounded text-[10px] md:text-xs font-medium">GraphQL</span>
-                    </div>
-                </div>
-                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center self-end text-lg mt-3">→</div>
             </div>
         </div>
-    </div>
+
+        <!-- Right Column -->
+        <div class="col-span-3 flex flex-col gap-6 fade-block" id="col-right">
+            
+            <!-- Top Right Card -->
+            <div class="bg-white rounded-[32px] p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] flex-1 flex flex-col relative overflow-hidden group border border-gray-50">
+                <div class="absolute top-6 right-6 w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-gray-100 transition-colors cursor-pointer">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </div>
+                
+                <h3 class="text-gray-500 font-medium text-[13px] mb-1" id="tr-title"></h3>
+                <div class="text-[2.5rem] font-bold text-gray-900 leading-none tracking-tight mb-2" id="tr-metric"></div>
+                <p class="text-[13px] text-gray-400 mb-6" id="tr-subtext"></p>
+
+                <!-- Avatars Array matching dribbble -->
+                <div class="flex items-center justify-center relative h-16 w-full mb-4" id="avatars-container">
+                    <!-- Avatars populate here with JS -->
+                </div>
+
+                <!-- List/Timeline -->
+                <div class="mt-auto space-y-3" id="list-container"></div>
+            </div>
+
+            <!-- Bottom Right Card -->
+            <div class="bg-white rounded-[32px] p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] h-[40%] min-h-[220px] flex flex-col relative group border border-gray-50">
+                <div class="absolute top-6 right-6 w-8 h-8 rounded-full border border-gray-100 bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-gray-100 transition-colors cursor-pointer">
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </div>
+
+                <h3 class="text-gray-500 font-medium text-[13px] mb-1" id="br-title"></h3>
+                <div class="text-[2.2rem] font-bold text-gray-900 leading-none tracking-tight mb-1" id="br-metric"></div>
+                <p class="text-[11px] text-gray-400" id="br-subtext"></p>
+
+                <!-- Bar Chart -->
+                <div class="flex items-end justify-between w-full h-full mt-6 gap-2" id="chart-container">
+                    <!-- Bars populate here -->
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- JS Logic -->
+    <script>
+        const engineerData = {
+            heroTitle: "Engineer the Future of Biosystems & Food",
+            heroHeading: "Engineering Starts Here",
+            heroSubtitle: "Applying advanced non-destructive testing, automation, and control engineering to solve real-world industry challenges — so you can build scalable processes with less effort.",
+            timelineNodes: ["Automation", "Nondestructive Test", "Control Systems"],
+            theme: {
+                centerBg: "bg-[#e5e9fc]", // Soft blue/purple
+                barColor: "bg-gradient-to-t from-[#8ba1f7] to-[#ccd7fe]",
+                centerImg: "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=1200",
+                arcImg: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=200",
+                coverImg: "https://images.unsplash.com/photo-1581092160607-ee22730daec6?auto=format&fit=crop&q=80&w=600"
+            },
+            centerCard: {
+                tag: "Academic Excellence",
+                value: "M.Sc. Food Ind.",
+                highlight: "University of Padova",
+                growth: "GPA: 25.5/30",
+                avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=eng"
+            },
+            topRight: {
+                title: "Engineering Roles",
+                metric: "3+ Years",
+                subtext: "Academia & Committees",
+                avatars: [
+                    "https://api.dicebear.com/7.x/faces/svg?seed=UP&backgroundColor=e5e9fc",
+                    "https://api.dicebear.com/7.x/faces/svg?seed=UT&backgroundColor=ccd7fe",
+                    "https://api.dicebear.com/7.x/faces/svg?seed=IR&backgroundColor=8ba1f7"
+                ],
+                list: [
+                    { label: "M.Sc. Uni of Padova", date: "2025 - Pres" },
+                    { label: "Exec. Member IRNDT", date: "2022 - 2025" }
+                ]
+            },
+            bottomRight: {
+                title: "Tool Proficiency",
+                metric: "88%",
+                subtext: "Engineering Software Performance",
+                skills: [
+                    { name: "MATLAB", val: 95 },
+                    { name: "SolidWorks", val: 85 },
+                    { name: "PLC", val: 80 },
+                    { name: "Arduino", val: 85 },
+                    { name: "AutoCAD", val: 75 }
+                ]
+            }
+        };
+
+        const developerData = {
+            heroTitle: "Turn Your Ideas Into Predictable Revenue with AI",
+            heroHeading: "Development Starts Here",
+            heroSubtitle: "Transforming ideas into scalable front-end applications and integrating cutting-edge Machine Learning models. I analyze behavior, build funnels, and automate.",
+            timelineNodes: ["AI Integration", "Front-end Dev", "Optimization"],
+            theme: {
+                centerBg: "bg-[#f1e6fd]", // Soft purple (like MonetAI)
+                barColor: "bg-gradient-to-t from-[#b57af3] to-[#ebd4ff]",
+                centerImg: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200",
+                arcImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=200",
+                coverImg: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600"
+            },
+            centerCard: {
+                tag: "Current Role",
+                value: "Front-end Dev",
+                highlight: "PropertyGPT LTD, Dubai",
+                growth: "React, Python",
+                avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=dev"
+            },
+            topRight: {
+                title: "Core Experience",
+                metric: "+92%",
+                subtext: "Web & AI Implementation",
+                avatars: [
+                    "https://api.dicebear.com/7.x/faces/svg?seed=D1&backgroundColor=f1e6fd",
+                    "https://api.dicebear.com/7.x/faces/svg?seed=D2&backgroundColor=ebd4ff",
+                    "https://api.dicebear.com/7.x/faces/svg?seed=D3&backgroundColor=b57af3"
+                ],
+                list: [
+                    { label: "Front-end @ PropertyGPT", date: "2023 - Pres" },
+                    { label: "ML @ Stanford", date: "Summer 2023" }
+                ]
+            },
+            bottomRight: {
+                title: "Tech Stack Rate",
+                metric: "89.5%",
+                subtext: "AI & Web Mastery Average",
+                skills: [
+                    { name: "Python", val: 90 },
+                    { name: "React", val: 85 },
+                    { name: "OpenAI API", val: 80 },
+                    { name: "TensorFlow", val: 75 },
+                    { name: "OpenCV", val: 70 }
+                ]
+            }
+        };
+
+        let isDev = false;
+
+        function renderData() {
+            const data = isDev ? developerData : engineerData;
+
+            // Text Updates
+            document.getElementById('hero-title').innerText = data.heroTitle;
+            document.getElementById('hero-heading').innerText = data.heroHeading;
+            document.getElementById('hero-subtitle').innerText = data.heroSubtitle;
+            document.getElementById('node-1').innerText = data.timelineNodes[0];
+            document.getElementById('node-2').innerText = data.timelineNodes[1];
+            document.getElementById('node-3').innerText = data.timelineNodes[2];
+
+            // Center Column
+            const centerBg = document.getElementById('center-bg');
+            centerBg.className = `w-full h-full rounded-[32px] overflow-hidden relative shadow-md flex flex-col justify-end p-6 transition-colors duration-700 ${data.theme.centerBg}`;
+            document.getElementById('center-image').src = data.theme.centerImg;
+            document.getElementById('arc-image').src = data.theme.arcImg;
+
+            document.getElementById('card-tag').innerText = data.centerCard.tag;
+            document.getElementById('card-value').innerText = data.centerCard.value;
+            document.getElementById('card-highlight').innerText = data.centerCard.highlight;
+            document.getElementById('card-growth').innerText = data.centerCard.growth;
+            document.getElementById('card-avatar').src = data.centerCard.avatar;
+            document.getElementById('card-cover').src = data.theme.coverImg;
+
+            // Top Right
+            document.getElementById('tr-title').innerText = data.topRight.title;
+            document.getElementById('tr-metric').innerText = data.topRight.metric;
+            document.getElementById('tr-subtext').innerText = data.topRight.subtext;
+
+            // Circular Avatars Layout (like the MonetAI design)
+            const positions = [
+                'top-0 left-[20%]', 
+                'bottom-0 left-[40%]', 
+                'top-2 right-[20%]'
+            ];
+            const avatarsHtml = data.topRight.avatars.map((src, i) => `
+                <img src="${src}" alt="avatar" class="absolute ${positions[i] || 'top-0 right-0'} w-11 h-11 rounded-full border-2 border-white bg-white shadow-md hover:scale-110 transition-transform" />
+            `).join('');
+            document.getElementById('avatars-container').innerHTML = avatarsHtml;
+
+            const listHtml = data.topRight.list.map(item => `
+                <div class="flex justify-between items-center text-[13px] border-gray-100 pb-2">
+                    <span class="font-semibold text-gray-800">${item.label}</span>
+                    <span class="text-gray-400 font-medium">${item.date}</span>
+                </div>
+            `).join('');
+            document.getElementById('list-container').innerHTML = listHtml;
+
+            // Bottom Right
+            document.getElementById('br-title').innerText = data.bottomRight.title;
+            document.getElementById('br-metric').innerText = data.bottomRight.metric;
+            document.getElementById('br-subtext').innerText = data.bottomRight.subtext;
+
+            const chartHtml = data.bottomRight.skills.map(skill => `
+                <div class="w-full flex flex-col justify-end items-center group/bar h-full">
+                    <!-- Tooltip -->
+                    <span class="opacity-0 group-hover/bar:opacity-100 text-[10px] text-gray-600 mb-2 transition-opacity font-medium pointer-events-none whitespace-nowrap">${skill.name}</span>
+                    <!-- Bar -->
+                    <div class="chart-bar w-full rounded-t-xl ${data.theme.barColor} max-w-[40px] shadow-sm mb-0 rounded-b-sm" style="height: 0%"></div>
+                </div>
+            `).join('');
+            document.getElementById('chart-container').innerHTML = chartHtml;
+
+            // Refresh icons if needed
+            lucide.createIcons();
+
+            // Animate bar heights after a tiny delay
+            setTimeout(() => {
+                const bars = document.querySelectorAll('.chart-bar');
+                bars.forEach((bar, index) => {
+                    bar.style.height = `${data.bottomRight.skills[index].val}%`;
+                });
+            }, 100);
+        }
+
+        function togglePersona() {
+            isDev = !isDev;
+            
+            // Toggle Slider UI
+            const slider = document.getElementById('toggle-slider');
+            const textEng = document.getElementById('text-eng');
+            const textDev = document.getElementById('text-dev');
+
+            if(isDev) {
+                slider.style.transform = 'translateX(calc(100% + 4px))';
+                textEng.classList.replace('text-white', 'text-gray-500');
+                textDev.classList.replace('text-gray-500', 'text-white');
+            } else {
+                slider.style.transform = 'translateX(0)';
+                textEng.classList.replace('text-gray-500', 'text-white');
+                textDev.classList.replace('text-white', 'text-gray-500');
+            }
+
+            // Crossfade blocks
+            const blocks = ['col-left', 'col-center', 'col-right'].map(id => document.getElementById(id));
+            blocks.forEach(b => b.classList.add('fade-out'));
+
+            setTimeout(() => {
+                renderData();
+                blocks.forEach(b => b.classList.remove('fade-out'));
+            }, 300);
+        }
+
+        // Event Listeners
+        document.getElementById('toggle-container').addEventListener('click', togglePersona);
+
+        // Initial setup
+        document.addEventListener("DOMContentLoaded", () => {
+            renderData();
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
