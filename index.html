@@ -57,7 +57,7 @@
 <body class="h-screen w-screen overflow-hidden flex flex-col text-gray-900 selection:bg-purple-200">
 
     <!-- Header Navigation -->
-    <header class="flex justify-between items-center w-full px-6 py-4 bg-transparent shrink-0">
+    <header class="relative z-50 flex justify-between items-center w-full px-6 py-4 bg-transparent shrink-0">
         <!-- Logo -->
         <div class="flex items-center gap-2 font-bold text-xl tracking-tight">
             <div class="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
@@ -180,14 +180,14 @@
                     </div>
                     
                     <!-- Vertical Stepper (Left absolute positioned) -->
-                    <div class="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg">
+                    <div class="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg z-20">
                         <div class="w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center border border-gray-100">
                             <i data-lucide="check" class="w-3 h-3 text-black"></i>
                         </div>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-50 text-gray-400">
+                        <div onclick="prevCard()" class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-50 text-gray-400 cursor-pointer hover:bg-gray-200 transition-colors text-black">
                             <i data-lucide="chevron-up" class="w-3 h-3"></i>
                         </div>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-50 text-gray-400">
+                        <div onclick="nextCard()" class="w-6 h-6 rounded-full flex items-center justify-center bg-gray-50 text-gray-400 cursor-pointer hover:bg-gray-200 transition-colors text-black">
                             <i data-lucide="chevron-down" class="w-3 h-3"></i>
                         </div>
                     </div>
@@ -240,32 +240,48 @@
     <!-- JS Logic -->
     <script>
         const engineerData = {
-            heroTitle: "Engineer the Future of Biosystems & Food",
-            heroHeading: "Engineering Starts Here",
-            heroSubtitle: "Applying advanced non-destructive testing, automation, and control engineering to solve real-world industry challenges — so you can build scalable processes with less effort.",
-            timelineNodes: ["Automation", "Nondestructive Test", "Control Systems"],
+            heroTitle: "Mechanics of Biosystems & Food Industry Engineer",
+            heroHeading: "Engineering & Automation",
+            heroSubtitle: "Applying advanced nondestructive testing, automation, and control engineering to solve real-world industry challenges in the food and agriculture sector.",
+            timelineNodes: ["Nondestructive Testing", "Control Engineering", "Biosystems"],
             theme: {
                 centerBg: "bg-[#e5e9fc]", // Soft blue/purple
                 barColor: "bg-gradient-to-t from-[#8ba1f7] to-[#ccd7fe]",
-                centerImg: "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&q=80&w=1200",
-                arcImg: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=200",
-                coverImg: "https://images.unsplash.com/photo-1581092160607-ee22730daec6?auto=format&fit=crop&q=80&w=600"
+                centerImg: "https://picsum.photos/id/240/1200/800",
+                arcImg: "https://picsum.photos/id/111/200/200",
+                coverImg: "https://picsum.photos/id/160/600/400"
             },
-            centerCard: {
-                tag: "Academic Excellence",
-                value: "M.Sc. Food Ind.",
-                highlight: "University of Padova",
-                growth: "GPA: 25.5/30",
-                avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=eng"
-            },
+            centerCards: [
+                {
+                    tag: "Academic Excellence",
+                    value: "M.Sc. Food Industry Eng.",
+                    highlight: "University of Padova | Italy",
+                    growth: "GPA: 25.5/30",
+                    avatar: "https://ui-avatars.com/api/?name=EN&background=0D8ABC&color=fff&rounded=true"
+                },
+                {
+                    tag: "Academic Excellence",
+                    value: "B.Sc. Biosystems Eng.",
+                    highlight: "University of Tehran | Iran",
+                    growth: "GPA: 18.71/20",
+                    avatar: "https://ui-avatars.com/api/?name=UT&background=0D8ABC&color=fff&rounded=true"
+                },
+                {
+                    tag: "Academic Experience",
+                    value: "Teaching Assistant",
+                    highlight: "University of Tehran | Iran",
+                    growth: "Control Systems",
+                    avatar: "https://ui-avatars.com/api/?name=TA&background=0D8ABC&color=fff&rounded=true"
+                }
+            ],
             topRight: {
                 title: "Engineering Roles",
-                metric: "3+ Years",
+                metric: "4+ Years",
                 subtext: "Academia & Committees",
                 avatars: [
-                    "https://api.dicebear.com/7.x/faces/svg?seed=UP&backgroundColor=e5e9fc",
-                    "https://api.dicebear.com/7.x/faces/svg?seed=UT&backgroundColor=ccd7fe",
-                    "https://api.dicebear.com/7.x/faces/svg?seed=IR&backgroundColor=8ba1f7"
+                    "https://ui-avatars.com/api/?name=UP&background=e5e9fc&rounded=true",
+                    "https://ui-avatars.com/api/?name=UT&background=ccd7fe&rounded=true",
+                    "https://ui-avatars.com/api/?name=IR&background=8ba1f7&rounded=true"
                 ],
                 list: [
                     { label: "M.Sc. Uni of Padova", date: "2025 - Pres" },
@@ -274,7 +290,7 @@
             },
             bottomRight: {
                 title: "Tool Proficiency",
-                metric: "88%",
+                metric: "90%",
                 subtext: "Engineering Software Performance",
                 skills: [
                     { name: "MATLAB", val: 95 },
@@ -287,45 +303,61 @@
         };
 
         const developerData = {
-            heroTitle: "Turn Your Ideas Into Predictable Revenue with AI",
-            heroHeading: "Development Starts Here",
-            heroSubtitle: "Transforming ideas into scalable front-end applications and integrating cutting-edge Machine Learning models. I analyze behavior, build funnels, and automate.",
-            timelineNodes: ["AI Integration", "Front-end Dev", "Optimization"],
+            heroTitle: "Front-end Development & Machine Learning",
+            heroHeading: "Web Development starts with AI",
+            heroSubtitle: "Transforming ideas into scalable front-end applications and integrating cutting-edge machine learning models like OpenAI and TensorFlow for intelligent solutions.",
+            timelineNodes: ["Machine Learning", "Front-end Dev", "AI Integration"],
             theme: {
                 centerBg: "bg-[#f1e6fd]", // Soft purple (like MonetAI)
                 barColor: "bg-gradient-to-t from-[#b57af3] to-[#ebd4ff]",
-                centerImg: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200",
-                arcImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=200",
-                coverImg: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600"
+                centerImg: "https://picsum.photos/id/180/1200/800",
+                arcImg: "https://picsum.photos/id/162/200/200",
+                coverImg: "https://picsum.photos/id/2/600/400"
             },
-            centerCard: {
-                tag: "Current Role",
-                value: "Front-end Dev",
-                highlight: "PropertyGPT LTD, Dubai",
-                growth: "React, Python",
-                avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=dev"
-            },
+            centerCards: [
+                {
+                    tag: "Current Role",
+                    value: "Front-end Dev",
+                    highlight: "PropertyGPT LTD, Dubai",
+                    growth: "JavaScript, Python",
+                    avatar: "https://ui-avatars.com/api/?name=DV&background=b57af3&color=fff&rounded=true"
+                },
+                {
+                    tag: "Certification",
+                    value: "Machine Learning Spec.",
+                    highlight: "Stanford University",
+                    growth: "Coursera",
+                    avatar: "https://ui-avatars.com/api/?name=SU&background=b57af3&color=fff&rounded=true"
+                },
+                {
+                    tag: "Research & Publication",
+                    value: "AI & Spectroscopy",
+                    highlight: "Microgreens Quality",
+                    growth: "Deep Learning",
+                    avatar: "https://ui-avatars.com/api/?name=AI&background=b57af3&color=fff&rounded=true"
+                }
+            ],
             topRight: {
                 title: "Core Experience",
-                metric: "+92%",
-                subtext: "Web & AI Implementation",
+                metric: "AI & Web",
+                subtext: "Developer & Researcher",
                 avatars: [
-                    "https://api.dicebear.com/7.x/faces/svg?seed=D1&backgroundColor=f1e6fd",
-                    "https://api.dicebear.com/7.x/faces/svg?seed=D2&backgroundColor=ebd4ff",
-                    "https://api.dicebear.com/7.x/faces/svg?seed=D3&backgroundColor=b57af3"
+                    "https://ui-avatars.com/api/?name=D1&background=f1e6fd&rounded=true",
+                    "https://ui-avatars.com/api/?name=D2&background=ebd4ff&rounded=true",
+                    "https://ui-avatars.com/api/?name=D3&background=b57af3&rounded=true"
                 ],
                 list: [
-                    { label: "Front-end @ PropertyGPT", date: "2023 - Pres" },
+                    { label: "Front-end @ PropertyGPT", date: "Summer 2025" },
                     { label: "ML @ Stanford", date: "Summer 2023" }
                 ]
             },
             bottomRight: {
                 title: "Tech Stack Rate",
-                metric: "89.5%",
-                subtext: "AI & Web Mastery Average",
+                metric: "85%",
+                subtext: "AI & Programming Expertise",
                 skills: [
                     { name: "Python", val: 90 },
-                    { name: "React", val: 85 },
+                    { name: "JavaScript", val: 85 },
                     { name: "OpenAI API", val: 80 },
                     { name: "TensorFlow", val: 75 },
                     { name: "OpenCV", val: 70 }
@@ -334,6 +366,39 @@
         };
 
         let isDev = false;
+        let cardIndex = 0;
+
+        function updateCenterCard(data) {
+            const cardData = data.centerCards[cardIndex];
+            const cardEl = document.getElementById('center-card');
+            
+            // Fading out slightly to show transition
+            cardEl.style.opacity = '0.5';
+            cardEl.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                document.getElementById('card-tag').innerText = cardData.tag;
+                document.getElementById('card-value').innerText = cardData.value;
+                document.getElementById('card-highlight').innerText = cardData.highlight;
+                document.getElementById('card-growth').innerText = cardData.growth;
+                document.getElementById('card-avatar').src = cardData.avatar;
+                
+                cardEl.style.opacity = '1';
+                cardEl.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function nextCard() {
+            const data = isDev ? developerData : engineerData;
+            cardIndex = (cardIndex + 1) % data.centerCards.length;
+            updateCenterCard(data);
+        }
+
+        function prevCard() {
+            const data = isDev ? developerData : engineerData;
+            cardIndex = (cardIndex - 1 + data.centerCards.length) % data.centerCards.length;
+            updateCenterCard(data);
+        }
 
         function renderData() {
             const data = isDev ? developerData : engineerData;
@@ -352,11 +417,11 @@
             document.getElementById('center-image').src = data.theme.centerImg;
             document.getElementById('arc-image').src = data.theme.arcImg;
 
-            document.getElementById('card-tag').innerText = data.centerCard.tag;
-            document.getElementById('card-value').innerText = data.centerCard.value;
-            document.getElementById('card-highlight').innerText = data.centerCard.highlight;
-            document.getElementById('card-growth').innerText = data.centerCard.growth;
-            document.getElementById('card-avatar').src = data.centerCard.avatar;
+            document.getElementById('card-tag').innerText = data.centerCards[cardIndex].tag;
+            document.getElementById('card-value').innerText = data.centerCards[cardIndex].value;
+            document.getElementById('card-highlight').innerText = data.centerCards[cardIndex].highlight;
+            document.getElementById('card-growth').innerText = data.centerCards[cardIndex].growth;
+            document.getElementById('card-avatar').src = data.centerCards[cardIndex].avatar;
             document.getElementById('card-cover').src = data.theme.coverImg;
 
             // Top Right
@@ -412,6 +477,7 @@
 
         function togglePersona() {
             isDev = !isDev;
+            cardIndex = 0; // Reset card index when toggling persona
             
             // Toggle Slider UI
             const slider = document.getElementById('toggle-slider');
